@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Roboto;
+  src: url("../../vendor/Fonts/roboto-400-regular.woff");
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 104px 26px;
+}
+
+.footer__content {
+  color: #b6bcbf;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+}
+
+.footer__home {
+  border: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  padding-right: 50px;
+}
+
+.footer_tt {
+  border: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  padding-right: 50px;
+}
+
+.footer__git {
+  cursor: pointer;
+}
+
+.footer__fcbk {
+  cursor: pointer;
+  margin-right: 20px;
+}
