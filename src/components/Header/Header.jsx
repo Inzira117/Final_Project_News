@@ -1,29 +1,42 @@
 import "./Header.css";
+import { useLocation } from "react-router-dom";
 // import { useContext } from "react";
 // // import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 // import CurrentUserContext from "../../context/CurrentUserContext";
 
 function Header({ handleLoginClick }) {
+  const location = useLocation();
+  const isSavedPage = location.pathname === "/saved-news";
+
   return (
-    <header className="header">
+    <header className={`header ${isSavedPage ? "header--dark" : ""}`}>
       <Link to="/">
-        <button type="button" className="header__logo">
+        <button
+          type="button"
+          className={`header__logo ${isSavedPage ? "dark" : ""}`}
+        >
           NewsExplorer
         </button>
       </Link>
       <div className="header__buttons">
-        <button type="button" className="header__home">
+        <button
+          type="button"
+          className={`header__home ${isSavedPage ? "dark" : ""}`}
+        >
           Home
         </button>
         <Link to="/saved-news">
-          <button type="button" className="header__home">
+          <button
+            type="button"
+            className={`header__home ${isSavedPage ? "dark" : ""}`}
+          >
             Saved news
           </button>
         </Link>
         <button
           type="button"
-          className="header__login"
+          className={`header__login ${isSavedPage ? "dark" : ""}`}
           onClick={handleLoginClick}
         >
           Sign in

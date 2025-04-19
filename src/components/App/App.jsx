@@ -41,9 +41,7 @@ function App() {
             <Route path="/saved-news" element={<SavedNews />} />
           </Routes>
         </div>
-        <NewsCard />
-        <AboutAuthor />
-        <Footer />
+
         {/* <Preloader /> */}
         <LoginModal
           activeModal={activeModal === "login"}
@@ -55,6 +53,7 @@ function App() {
           closeActiveModal={closeActiveModal}
           handleLoginClick={handleLoginClick}
         />
+        <Footer />
       </div>
     </div>
   );
