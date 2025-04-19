@@ -1,23 +1,31 @@
 import "./Header.css";
 // import { useContext } from "react";
 // // import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import CurrentUserContext from "../../context/CurrentUserContext";
 
-function Header() {
+function Header({ handleLoginClick }) {
   return (
     <header className="header">
-      <button type="button" className="header__logo">
-        NewsExplorer
-      </button>
+      <Link to="/">
+        <button type="button" className="header__logo">
+          NewsExplorer
+        </button>
+      </Link>
       <div className="header__buttons">
-        <p className="home">
+        <button type="button" className="header__home">
+          Home
+        </button>
+        <Link to="/saved-news">
           <button type="button" className="header__home">
-            Home
+            Saved news
           </button>
-          <span className="nav__underline"></span>
-        </p>
-        <button type="button" className="header__login">
+        </Link>
+        <button
+          type="button"
+          className="header__login"
+          onClick={handleLoginClick}
+        >
           Sign in
         </button>
       </div>
