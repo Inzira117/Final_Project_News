@@ -3,11 +3,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Header from "../Header/Header";
 import Main from "../Main/Main";
-import AboutAuthor from "../About/About";
 import Footer from "../Footer/Footer";
-import NewsCard from "../NewsCard/NewsCard";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SavedNews from "../SavedNews/SavedNews";
@@ -32,13 +29,25 @@ function App() {
     <div className="page">
       <div className="page__content">
         <div className="page__main">
-          {/* <Header
-            handleLoginClick={handleLoginClick}
-            handleRegisterClick={handleRegisterClick}
-          /> */}
           <Routes>
-            <Route path="/" element={<Main onClick={handleLoginClick} />} />
-            <Route path="/saved-news" element={<SavedNews />} />
+            <Route
+              path="/"
+              element={
+                <Main
+                  handleRegisterClick={handleRegisterClick}
+                  handleLoginClick={handleLoginClick}
+                />
+              }
+            />
+            <Route
+              path="/saved-news"
+              element={
+                <SavedNews
+                  handleRegisterClick={handleRegisterClick}
+                  handleLoginClick={handleLoginClick}
+                />
+              }
+            />
           </Routes>
         </div>
 

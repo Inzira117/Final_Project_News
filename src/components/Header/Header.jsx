@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 // import { useContext } from "react";
 // // import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
-// import CurrentUserContext from "../../context/CurrentUserContext";
 
 function Header({ handleLoginClick }) {
   const location = useLocation();
