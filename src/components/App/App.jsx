@@ -8,7 +8,6 @@ import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SavedNews from "../SavedNews/SavedNews";
-// import Preloader from "../Preloader/Preloader";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -51,7 +50,6 @@ function App() {
           </Routes>
         </div>
 
-        {/* <Preloader /> */}
         <LoginModal
           activeModal={activeModal === "login"}
           closeActiveModal={closeActiveModal}

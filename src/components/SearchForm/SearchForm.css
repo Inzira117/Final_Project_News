@@ -38,3 +38,20 @@
 .search__btn:hover {
   background: #347eff;
 }
+
+.news {
+  background-color: #f5f6f7;
+  background-size: cover;
+}
+
+.news__content {
+  padding: 80px 100px;
+  margin: 0 auto;
+}
+
+.news__title {
+  font-family: Roboto Slab;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
