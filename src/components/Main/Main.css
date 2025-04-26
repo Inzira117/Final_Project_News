@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Roboto;
+  src: url("../../vendor/Fonts/roboto-400-regular.woff2");
+}
+
 .main {
   width: 100%;
   margin: 0;
@@ -9,6 +14,75 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  min-height: 600px; /* или больше, чтобы покрывало контент */
+  min-height: 600px;
   box-sizing: border-box;
+}
+
+.results__not-found {
+  background-color: #f5f6f7;
+  position: relative;
+  padding: 84px;
+}
+
+.results__container {
+  width: 356px;
+  margin: 0 auto;
+}
+
+.results__img {
+  width: 82px;
+  height: 82px;
+  padding-left: 120px;
+}
+
+.results__title {
+  font-family: Roboto Slab;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #1a1b22;
+}
+
+.results__description {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #b6bcbf;
+}
+
+.error {
+  background-color: #f5f6f7;
+  position: relative;
+  padding: 84px;
+}
+
+.error__title {
+  font-family: Roboto Slab;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #1a1b22;
+}
+
+.button__show-more {
+  width: 288px;
+  height: 64px;
+  display: block;
+  background-color: white;
+  color: black;
+  border-radius: 80px;
+  border: none;
+  margin: 50px auto 80px;
+  cursor: pointer;
+}
+
+.button__show-more:hover {
+  background-color: #e8e8e8;
 }

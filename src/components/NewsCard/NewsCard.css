@@ -82,19 +82,3 @@
   letter-spacing: 0.4px;
   text-transform: uppercase;
 }
-
-.button__show-more {
-  width: 288px;
-  height: 64px;
-  display: block;
-  background-color: white;
-  color: black;
-  border-radius: 80px;
-  border: none;
-  margin: 50px auto 80px;
-  cursor: pointer;
-}
-
-.button__show-more:hover {
-  background-color: #e8e8e8;
-}

@@ -3,6 +3,7 @@ import SearchForm from "../SearchForm/SearchForm";
 
 export default function Navigation({
   setArticles,
+  articles,
   setLoading,
   setError,
   setHasSearched,
@@ -16,6 +17,7 @@ export default function Navigation({
       </p>
       <SearchForm
         setArticles={setArticles}
+        articles={articles}
         setLoading={setLoading}
         setError={setError}
         setHasSearched={setHasSearched}

@@ -11,6 +11,7 @@ import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [articles, setArticles] = useState([]);
 
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -35,6 +36,8 @@ function App() {
                 <Main
                   handleRegisterClick={handleRegisterClick}
                   handleLoginClick={handleLoginClick}
+                  articles={articles}
+                  setArticles={setArticles}
                 />
               }
             />
