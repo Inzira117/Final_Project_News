@@ -12,7 +12,7 @@
 }
 
 .news__content {
-  padding: 30px 104px 54px;
+  padding: 40px 104px 56px;
 }
 
 .saved__articles {
@@ -40,4 +40,19 @@
   line-height: 24px;
   letter-spacing: 0px;
   color: #1a1b22;
+}
+
+.no__articles {
+  padding: 30px 104px;
+}
+
+.saved-news__cards {
+  background-color: #e8e8e8;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px 104px;
+  list-style: none;
+  box-sizing: border-box;
 }

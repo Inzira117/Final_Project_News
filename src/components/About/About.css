@@ -1,6 +1,5 @@
 .about__author {
   background-color: white;
-  position: relative;
   z-index: 1;
   margin-top: 0;
   display: flex;
@@ -31,4 +30,36 @@
   line-height: 24px;
   margin-bottom: 16px; /* spacing between paragraphs */
   max-width: 600px;
+}
+
+@media (max-width: 950px) {
+  .about__author {
+    padding: 50px 16px;
+  }
+  .about__avatar {
+    width: 232px;
+    height: 232px;
+    padding-left: 40px;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 450px) {
+  .about__author {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about__avatar {
+    margin: 0 auto;
+    padding: 0;
+    height: 272px;
+    width: 272px;
+  }
+
+  .about__content {
+    padding: 24px 16px 0;
+    margin-bottom: 80px;
+    width: 288px;
+  }
 }

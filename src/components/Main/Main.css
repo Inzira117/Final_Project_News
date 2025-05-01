@@ -86,3 +86,21 @@
 .button__show-more:hover {
   background-color: #e8e8e8;
 }
+
+@media (max-width: 450px) {
+  .news {
+    padding: 0 16px;
+    margin: 0;
+  }
+
+  .news__content {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 16px;
+  }
+
+  .button__show-more {
+    width: 288px;
+  }
+}

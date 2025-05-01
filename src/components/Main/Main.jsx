@@ -13,11 +13,18 @@ function Main({
   handleRegisterClick,
   articles,
   setArticles,
+  handleLogout,
+  isLoggedIn,
+  currentUser,
+  handleSaveArticle,
+  handleDeleteArticle,
 }) {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [searchError, setSearchError] = useState("");
+  const [newsError, setNewsError] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [searchText, setSearchText] = useState("");
 
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + 3);
@@ -31,25 +38,42 @@ function Main({
         <Header
           handleLoginClick={handleLoginClick}
           handleRegisterClick={handleRegisterClick}
+          handleLogout={handleLogout}
+          isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
         />
         <Navigation
           setArticles={setArticles}
           articles={articles}
           setLoading={setLoading}
-          setError={setError}
+          setSearchError={setSearchError}
           setHasSearched={setHasSearched}
+          searchText={searchText}
+          setSearchText={setSearchText}
         />
       </div>
 
-      {loading && <Preloader />}
-      {error && <p className="search__error">{error}</p>}
+      {searchError && <p className="search__error">{searchError}</p>}
+      {newsError && <p className="search__error">{newsError}</p>}
+      {loading && (
+        <p className="search__error">
+          <Preloader />
+        </p>
+      )}
       {!loading && articles.length > 0 && (
         <section className="news">
           <div className="news__content">
             <h2 className="news__title">Search results</h2>
             <ul className="cards">
               {visibleArticles.map((article, index) => (
-                <NewsCard key={index} article={article} />
+                <NewsCard
+                  key={index}
+                  article={article}
+                  isLoggedIn={isLoggedIn}
+                  handleSaveArticle={handleSaveArticle}
+                  keyword={searchText}
+                  handleDeleteArticle={handleDeleteArticle}
+                />
               ))}
             </ul>
             {visibleCount < articles.length && (
@@ -60,19 +84,24 @@ function Main({
           </div>
         </section>
       )}
-      {!loading && hasSearched && articles.length === 0 && !error && (
-        <div className="results__not-found">
-          <div className="results__container">
-            <img src={NotFound} alt="not found" className="results__img" />
-            <p className="results__title">Nothing found.</p>
-            <p className="results__description">
-              Sorry, but nothing matched your search terms
-            </p>
-          </div>
-        </div>
-      )}
 
-      {!loading && hasSearched && error && (
+      {!loading &&
+        hasSearched &&
+        articles.length === 0 &&
+        !searchError &&
+        !newsError && (
+          <div className="results__not-found">
+            <div className="results__container">
+              <img src={NotFound} alt="not found" className="results__img" />
+              <p className="results__title">Nothing found.</p>
+              <p className="results__description">
+                Sorry, but nothing matched your search terms
+              </p>
+            </div>
+          </div>
+        )}
+
+      {!loading && hasSearched && (searchError || newsError) && (
         <div className="error">
           <p className="error__title">
             Sorry, something went wrong during the request. Please try again

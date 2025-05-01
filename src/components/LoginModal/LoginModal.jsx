@@ -5,7 +5,26 @@ export default function LoginModal({
   closeActiveModal,
   activeModal,
   handleRegisterClick,
+  handleLogin,
 }) {
+  const [formValues, setFormValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    handleLogin(formValues);
+  }
+
   return (
     <ModalWithForm
       title="Sign in"
@@ -13,6 +32,7 @@ export default function LoginModal({
       secondButtonText="or Sign up"
       activeModal={activeModal}
       closeActiveModal={closeActiveModal}
+      onSubmit={handleSubmit}
     >
       <label className="modal__label">
         Email
@@ -21,6 +41,8 @@ export default function LoginModal({
           type="email"
           name="email"
           placeholder="Enter email"
+          value={formValues.email}
+          onChange={handleChange}
         />
       </label>
       <label className="modal__label">
@@ -31,6 +53,8 @@ export default function LoginModal({
           name="password"
           placeholder="Enter password"
           minLength="8"
+          value={formValues.password}
+          onChange={handleChange}
         />
       </label>
       <div className="modal__buttons">

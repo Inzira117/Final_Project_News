@@ -5,14 +5,36 @@ export default function RegisterModal({
   closeActiveModal,
   activeModal,
   handleLoginClick,
+  handleRegistration,
 }) {
+  const [formValues, setFormValues] = useState({
+    email: "",
+    password: "",
+    username: "",
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const { email, password, username } = formValues;
+    handleRegistration({ email, password, username });
+  }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  }
+
   return (
     <ModalWithForm
-      title="Sign in"
-      buttonText="Sign in"
-      secondButtonText="or Sign up"
+      title="Sign up"
+      buttonText="Sign up"
+      secondButtonText="or Sign in"
       activeModal={activeModal}
       closeActiveModal={closeActiveModal}
+      onSubmit={handleSubmit}
     >
       <label className="modal__label">
         Email
@@ -21,6 +43,8 @@ export default function RegisterModal({
           type="email"
           name="email"
           placeholder="Enter email"
+          value={formValues.email}
+          onChange={handleChange}
         />
       </label>
       <label className="modal__label">
@@ -31,6 +55,8 @@ export default function RegisterModal({
           name="password"
           placeholder="Enter password"
           minLength="8"
+          value={formValues.password}
+          onChange={handleChange}
         />
       </label>
       <label className="modal__label">
@@ -40,6 +66,8 @@ export default function RegisterModal({
           type="username"
           name="username"
           placeholder="Enter your username"
+          value={formValues.username}
+          onChange={handleChange}
         />
       </label>
       <div className="modal__buttons">

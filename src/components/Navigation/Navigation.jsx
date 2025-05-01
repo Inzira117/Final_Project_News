@@ -5,8 +5,10 @@ export default function Navigation({
   setArticles,
   articles,
   setLoading,
-  setError,
   setHasSearched,
+  setSearchError,
+  searchText,
+  setSearchText,
 }) {
   return (
     <section className="navigation__content">
@@ -19,8 +21,10 @@ export default function Navigation({
         setArticles={setArticles}
         articles={articles}
         setLoading={setLoading}
-        setError={setError}
+        setSearchError={setSearchError}
         setHasSearched={setHasSearched}
+        searchText={searchText}
+        setSearchText={setSearchText}
       />
     </section>
   );

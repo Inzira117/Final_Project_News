@@ -1,18 +1,23 @@
 import "./SearchForm.css";
 import React, { useState } from "react";
-import getNews from "../../utils/api";
+import { getNews } from "../../utils/api";
 
-function SearchForm({ setArticles, setLoading, setError, setHasSearched }) {
-  const [searchText, setSearchText] = useState("");
-
+function SearchForm({
+  setArticles,
+  setLoading,
+  setSearchError,
+  setHasSearched,
+  searchText,
+  setSearchText,
+}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!searchText.trim()) {
-      setError("Please enter a keyword");
+      setSearchError("Please enter a keyword");
       return;
     }
 
-    setError("");
+    setSearchError("");
     setLoading(true);
     setHasSearched(true);
 
@@ -21,15 +26,15 @@ function SearchForm({ setArticles, setLoading, setError, setHasSearched }) {
       setArticles(results);
     } catch (err) {
       console.error("Error fetching news:", err);
-      setError("Something went wrong. Please try again.");
+      setSearchError("");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="search__bar">
-      <form onSubmit={handleSubmit}>
+    <form className="search__bar" onSubmit={handleSubmit}>
+      <div className="search__bar-container">
         <input
           className="search__input"
           type="text"
@@ -40,8 +45,8 @@ function SearchForm({ setArticles, setLoading, setError, setHasSearched }) {
         <button type="submit" className="search__btn">
           Search
         </button>
-      </form>
-    </section>
+      </div>
+    </form>
   );
 }
 

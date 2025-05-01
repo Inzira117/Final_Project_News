@@ -1,5 +1,6 @@
 .page {
   width: 100%;
+  overflow-x: hidden;
 }
 
 .page__content {
@@ -8,4 +9,14 @@
   max-width: 1440px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+@media (max-width: 950px) {
+  .page {
+    padding: 0;
+  }
+
+  .page__content {
+    width: 100%;
+  }
 }

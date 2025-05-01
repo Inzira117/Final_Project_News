@@ -1,9 +1,47 @@
 import "./NewsCard.css";
+import { useState } from "react";
 import SaveImage from "../../assets/saveimg.svg";
+import SavedImage from "../../assets/SavedImage.svg";
+import Delete from "../../assets/Delete.svg";
 
-function NewsCard({ article }) {
+function NewsCard({
+  article,
+  isLoggedIn,
+  handleSaveArticle,
+  handleDeleteArticle,
+  keyword,
+  isSavedNewsPage = false,
+}) {
   if (!article) return null;
-  const { title, description, publishedAt, urlToImage, source } = article;
+  const {
+    title,
+    description,
+    publishedAt,
+    urlToImage,
+    source,
+    keyword: articleKeyword,
+  } = article;
+
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
+  const handleSaveClick = () => {
+    if (!isLoggedIn) return;
+    setIsSaved((prev) => !prev);
+    if (!isSaved) {
+      handleSaveArticle(article, keyword);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isLoggedIn) {
+      setShowTooltip(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setShowTooltip(false);
+  };
 
   return (
     <li className="card">
@@ -13,10 +51,85 @@ function NewsCard({ article }) {
           alt={title}
           className="card__image"
         />
-        <button className="news__card-save-btn">
-          <img src={SaveImage} alt="save" className="news__card-save" />
-        </button>
+
+        {isSavedNewsPage && (
+          <p className="card__keyword">{keyword || articleKeyword}</p>
+        )}
+
+        {isSavedNewsPage ? (
+          <button
+            className="news__card-save-btn"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => handleDeleteArticle(article)}
+          >
+            <img src={Delete} alt="delete" className="news__card-save" />
+          </button>
+        ) : (
+          <button
+            className={`news__card-save-btn ${
+              isLoggedIn ? "" : "news-card__save-btn_disabled"
+            }`}
+            onClick={handleSaveClick}
+          >
+            <img
+              src={isSaved ? SavedImage : SaveImage}
+              alt="save"
+              className="news__card-save"
+            />
+          </button>
+        )}
+
+        {showTooltip && (
+          <div className="news-card__tooltip">
+            {isSavedNewsPage ? "Remove from saved" : "Sign in to save articles"}
+          </div>
+        )}
       </div>
+      {/* <div className="card__image-wrapper">
+        <img
+          src={urlToImage || "https://via.placeholder.com/150"}
+          alt={title}
+          className="card__image"
+        />
+        {isSavedNewsPage && (
+          <p className="card__keyword">{keyword || articleKeyword}</p>
+        )}
+        <div
+          className="news-card__save-container"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {isSavedNewsPage ? (
+            <button
+              className="news__card-save-btn"
+              onClick={() => handleDeleteArticle(article)}
+            >
+              <img src={Delete} alt="delete" className="news__card-save" />
+            </button>
+          ) : (
+            <button
+              className={`news__card-save-btn ${
+                isLoggedIn ? "" : "news-card__save-btn_disabled"
+              }`}
+              onClick={handleSaveClick}
+            >
+              <img
+                src={isSaved ? SavedImage : SaveImage}
+                alt="save"
+                className="news__card-save"
+              />
+            </button>
+          )}
+          {showTooltip && (
+            <div className="news-card__tooltip">
+              {isSavedNewsPage
+                ? "Remove from saved"
+                : "Sign in to save articles"}
+            </div>
+          )}
+        </div>
+      </div> */}
       <div className="card__content">
         <p className="news__date">
           {new Date(publishedAt).toLocaleDateString("en-US", {

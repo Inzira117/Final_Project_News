@@ -1,91 +1,113 @@
 import "./Header.css";
-import { useLocation } from "react-router-dom";
-// import { useContext } from "react";
-// // import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
+import Logout from "../../assets/logout.svg";
 
-function Header({ handleLoginClick }) {
+function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
   const location = useLocation();
   const isSavedPage = location.pathname === "/saved-news";
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <header className={`header ${isSavedPage ? "header--dark" : ""}`}>
-      <Link to="/">
-        <button
-          type="button"
-          className={`header__logo ${isSavedPage ? "dark" : ""}`}
-        >
-          NewsExplorer
-        </button>
+      <Link to="/" className={`header__logo ${isSavedPage ? "dark" : ""}`}>
+        NewsExplorer
       </Link>
+
+      {/* Desktop Nav */}
       <div className="header__buttons">
-        <button
-          type="button"
-          className={`header__home ${isSavedPage ? "dark" : ""}`}
-        >
+        <Link to="/" className={`header__home ${isSavedPage ? "dark" : ""}`}>
           Home
-        </button>
-        <Link to="/saved-news">
-          <button
-            type="button"
+        </Link>
+        {isLoggedIn && currentUser && (
+          <Link
+            to="/saved-news"
             className={`header__home ${isSavedPage ? "dark" : ""}`}
           >
             Saved news
+          </Link>
+        )}
+        {!isLoggedIn && (
+          <button
+            type="button"
+            className={`header__login ${isSavedPage ? "dark" : ""}`}
+            onClick={handleLoginClick}
+          >
+            Sign in
           </button>
-        </Link>
-        <button
-          type="button"
-          className={`header__login ${isSavedPage ? "dark" : ""}`}
-          onClick={handleLoginClick}
-        >
-          Sign in
-        </button>
+        )}
+        {isLoggedIn && currentUser && (
+          <button
+            type="button"
+            className={`header__logout-btn ${isSavedPage ? "dark" : ""}`}
+            onClick={handleLogout}
+          >
+            <p className={`header__username ${isSavedPage ? "dark" : ""}`}>
+              {currentUser.name}
+            </p>
+            <img
+              src={Logout}
+              alt="logout"
+              className={`header__logout-img ${isSavedPage ? "dark" : ""}`}
+            />
+          </button>
+        )}
       </div>
+
+      {/* Hamburger Icon */}
+      <button
+        className={`hamburger ${isSavedPage ? "dark" : ""}`}
+        aria-label="Menu"
+        onClick={toggleMenu}
+      >
+        <span className="hamburger__line"></span>
+        <span className="hamburger__line"></span>
+        <span className="hamburger__line"></span>
+      </button>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className={`mobile-menu ${isSavedPage ? "dark" : ""}`}>
+          <Link to="/" className="header__home" onClick={closeMenu}>
+            Home
+          </Link>
+          {isLoggedIn && currentUser && (
+            <Link to="/saved-news" className="header__home" onClick={closeMenu}>
+              Saved news
+            </Link>
+          )}
+          {!isLoggedIn && (
+            <button
+              type="button"
+              className="header__login"
+              onClick={() => {
+                handleLoginClick();
+                closeMenu();
+              }}
+            >
+              Sign in
+            </button>
+          )}
+          {isLoggedIn && currentUser && (
+            <button
+              type="button"
+              className="header__logout-btn"
+              onClick={() => {
+                handleLogout();
+                closeMenu();
+              }}
+            >
+              <p className="header__username">{currentUser.name}</p>
+              <img src={Logout} alt="logout" className="header__logout-img" />
+            </button>
+          )}
+        </div>
+      )}
     </header>
   );
 }
-// function Header() {
-//   return (
-//     <header className="header">
-//       <Link to="/">
-//         <button type="button" className="header__logo">
-//           NewsExplorer
-//         </button>
-//       </Link>
-
-//       <ToggleSwitch />
-//       {!isLoggedIn && (
-//         <>
-//           <button type="button" className="header__home">
-//             Home
-//           </button>
-//           <button
-//             type="button"
-//             onClick={handleLoginClick}
-//             className="header__add-clothes-btn"
-//           >
-//             Log in
-//           </button>
-//         </>
-//       )}
-//       {isLoggedIn && (
-//         <>
-//           <button
-//             type="button"
-//             onClick={handleAddClick}
-//             className="header__saved-articles"
-//           >
-//             Saved articles
-//           </button>
-//           <Link to="/profile" className="header__link">
-//             <div className="header__user-container">
-//               <p className="header__username">{userName}</p>
-//             </div>
-//           </Link>
-//         </>
-//       )}
-//     </header>
-//   );
-// }
 
 export default Header;

@@ -8,12 +8,21 @@ function AboutAuthor() {
       <div className="about__content">
         <h1 className="about__title">About the author</h1>
         <p className="about__text">
-          This block describes the project author. Here you should indicate your
-          name, what you do, and which development technologies you know.
+          My name is Inzira A. I am the developer behind this news search
+          project. This application was built using React.js for the frontend,
+          along with modern JavaScript (ES6+) features like async/await for
+          handling asynchronous operations. I implemented functional components
+          and React Hooks (useState, useEffect) to manage state and side effects
+          efficiently.
         </p>
         <p className="about__text">
-          You can also talk about your experience with TripleTen, what you
-          learned there, and how you can help potential customers.
+          For API interactions, I created a custom utility that fetches news
+          articles based on user input. The project also features dynamic UI
+          behavior like loading spinners, error handling, and conditional
+          rendering to create a smooth user experience. This project showcases
+          my skills in frontend development, particularly in React,
+          component-based architecture, state management, API integration, and
+          UI/UX design.
         </p>
       </div>
     </section>

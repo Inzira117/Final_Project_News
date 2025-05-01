@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-between;
   padding: 30px 104px 28px;
+  border-bottom: 1px solid #ccc;
 }
 
 .header__logo {
@@ -19,6 +20,7 @@
   font-size: 25px;
   line-height: 24px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .header__buttons {
@@ -37,17 +39,19 @@
 .header__home {
   background-color: transparent;
   border: none;
-  color: white;
+  color: #b6bcbf;
   padding: 8px 16px;
   font-family: Roboto Slab;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .header__home:hover {
   border-bottom: 2px solid white;
+  color: white;
 }
 
 .header__login {
@@ -70,6 +74,25 @@
   background-color: #e8e8e8;
 }
 
+.header__logout-btn {
+  border-width: 1px;
+  border-radius: 100px;
+  border-color: white;
+  color: white;
+  display: flex;
+  background-color: transparent;
+  gap: 12px;
+}
+
+.header__username {
+  padding-left: 12px;
+}
+
+.header__logout-img {
+  padding: 12px 12px;
+  cursor: pointer;
+}
+
 .header__logo.dark {
   color: #1a1b22;
 }
@@ -89,4 +112,62 @@
 
 .header__login.dark:hover {
   background-color: #e8e8e8;
+}
+
+.header__logout-btn.dark {
+  border: 1px solid #1a1b22;
+  color: black;
+}
+
+.header__logout-img.dark {
+  filter: invert(1);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger__line {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+}
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1b22;
+  padding: 16px;
+}
+
+.mobile-menu.hidden {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .header {
+    padding: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .header__logo {
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .header__buttons {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
