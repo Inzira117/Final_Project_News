@@ -3,7 +3,6 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { authorize, register, checkToken } from "../../utils/auth";
-import { saveArticle, fetchSavedArticles } from "../../utils/api";
 
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";

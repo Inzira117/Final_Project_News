@@ -86,50 +86,6 @@ function NewsCard({
           </div>
         )}
       </div>
-      {/* <div className="card__image-wrapper">
-        <img
-          src={urlToImage || "https://via.placeholder.com/150"}
-          alt={title}
-          className="card__image"
-        />
-        {isSavedNewsPage && (
-          <p className="card__keyword">{keyword || articleKeyword}</p>
-        )}
-        <div
-          className="news-card__save-container"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {isSavedNewsPage ? (
-            <button
-              className="news__card-save-btn"
-              onClick={() => handleDeleteArticle(article)}
-            >
-              <img src={Delete} alt="delete" className="news__card-save" />
-            </button>
-          ) : (
-            <button
-              className={`news__card-save-btn ${
-                isLoggedIn ? "" : "news-card__save-btn_disabled"
-              }`}
-              onClick={handleSaveClick}
-            >
-              <img
-                src={isSaved ? SavedImage : SaveImage}
-                alt="save"
-                className="news__card-save"
-              />
-            </button>
-          )}
-          {showTooltip && (
-            <div className="news-card__tooltip">
-              {isSavedNewsPage
-                ? "Remove from saved"
-                : "Sign in to save articles"}
-            </div>
-          )}
-        </div>
-      </div> */}
       <div className="card__content">
         <p className="news__date">
           {new Date(publishedAt).toLocaleDateString("en-US", {
