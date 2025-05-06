@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  left: 416px;
+  align-items: center;
 }
 
 .title {
@@ -17,7 +17,7 @@
   margin-top: 80px;
   padding: 0;
   width: 550px;
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 400;
   font-size: 60px;
   line-height: 64px;
@@ -26,7 +26,7 @@
 
 .description {
   color: white;
-  font-family: Roboto;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -65,12 +65,15 @@
 
 @media (max-width: 725px) {
   .title {
-    width: 260px;
+    width: 285px;
     font-size: 36px;
+    text-align: left;
   }
 
   .description {
-    width: 260px;
+    width: 285px;
     font-size: 18px;
+    text-align: left;
+    margin-bottom: 50px;
   }
 }

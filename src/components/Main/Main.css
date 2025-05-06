@@ -97,10 +97,10 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 0 16px;
   }
 
   .button__show-more {
     width: 288px;
+    margin-bottom: 30px;
   }
 }

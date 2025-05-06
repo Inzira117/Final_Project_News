@@ -1,7 +1,7 @@
 @font-face {
-  font-family: Roboto Slab;
+  font-family: Roboto;
   src: url("../../vendor/Fonts/roboto-400-regular.woff");
-  src: url("../../vendor/Fonts/roboto-400-regular.woff2");
+  src: url("../../vendor/Fonts/roboto-slab-400-regular.woff");
 }
 
 .saved__news {
@@ -16,7 +16,7 @@
 }
 
 .saved__articles {
-  font-family: Roboto;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -25,7 +25,7 @@
 }
 
 .saved__title {
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -34,7 +34,7 @@
 }
 
 .news__keyword {
-  font-family: Roboto;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
@@ -55,4 +55,32 @@
   padding: 40px 104px;
   list-style: none;
   box-sizing: border-box;
+}
+
+@media (max-width: 950px) {
+  .news__content {
+    padding: 0 16px;
+    margin-bottom: 30px;
+  }
+
+  .saved-news__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    gap: 8px;
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 450px) {
+  .saved__articles {
+    font-size: 12px;
+  }
+
+  .saved__title {
+    font-size: 30px;
+  }
+
+  .saved-news__cards {
+    padding: 20px 16px;
+  }
 }

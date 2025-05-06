@@ -6,7 +6,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 30px 104px 28px;
+  padding: 30px 104px 15px;
   border-bottom: 1px solid #ccc;
 }
 
@@ -15,7 +15,7 @@
   margin-top: 20px;
   border: none;
   color: white;
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 700;
   font-size: 25px;
   line-height: 24px;
@@ -37,21 +37,34 @@
 }
 
 .header__home {
+  position: relative;
   background-color: transparent;
   border: none;
   color: #b6bcbf;
   padding: 8px 16px;
-  font-family: Roboto Slab;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   cursor: pointer;
   text-decoration: none;
 }
 
-.header__home:hover {
-  border-bottom: 2px solid white;
-  color: white;
+.header__home::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+.header__home:hover::after {
+  transform: scaleX(1);
 }
 
 .header__login {
@@ -59,13 +72,13 @@
   border: 1px solid white;
   border-radius: 24px;
   width: 152px;
-  height: 48px;
-  padding: 8px 20px;
+  height: 40px;
+  padding: 5px 20px;
   margin-left: 16px;
   color: white;
-  font-family: Roboto Slab;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   cursor: pointer;
 }
@@ -86,6 +99,10 @@
 
 .header__username {
   padding-left: 12px;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .header__logout-img {
@@ -93,33 +110,46 @@
   cursor: pointer;
 }
 
-.header__logo.dark {
+.header__logo_dark {
   color: #1a1b22;
 }
 
-.header__home.dark,
-.header__login.dark {
+.header__home_dark,
+.header__login_dark {
   color: #1a1b22;
 }
 
-.header__login.dark {
+.header__login_dark {
   border: 1px solid #1a1b22;
 }
 
-.header__home.dark:hover {
-  border-bottom: 2px solid #1a1b22;
+.header__home_dark::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1a1b22;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
 }
 
-.header__login.dark:hover {
+.header__home_dark:hover::after {
+  transform: scaleX(1);
+}
+
+.header__login_dark:hover {
   background-color: #e8e8e8;
 }
 
-.header__logout-btn.dark {
+.header__logout-btn_dark {
   border: 1px solid #1a1b22;
   color: black;
 }
 
-.header__logout-img.dark {
+.header__logout-img_dark {
   filter: invert(1);
 }
 
@@ -137,6 +167,11 @@
   height: 2px;
   background-color: white;
 }
+
+.hamburger__line_dark {
+  background-color: black;
+}
+
 .mobile-menu {
   display: flex;
   flex-direction: column;
