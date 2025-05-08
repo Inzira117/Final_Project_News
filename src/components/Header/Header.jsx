@@ -21,75 +21,97 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
       </Link>
 
       {/* Desktop Nav */}
-      <div className="header__buttons">
-        <Link
-          to="/"
-          className={`header__home ${isSavedPage ? "header__home_dark" : ""}`}
-        >
-          Home
-        </Link>
-        {isLoggedIn && currentUser && (
-          <Link
-            to="/saved-news"
-            className={`header__home ${isSavedPage ? "header__home_dark" : ""}`}
-          >
-            Saved news
-          </Link>
-        )}
-        {!isLoggedIn && (
-          <button
-            type="button"
-            className={`header__login ${
-              isSavedPage ? "header__login_dark" : ""
-            }`}
-            onClick={handleLoginClick}
-          >
-            Sign in
-          </button>
-        )}
-        {isLoggedIn && currentUser && (
-          <button
-            type="button"
-            className={`header__logout-btn ${
-              isSavedPage ? "header__logout-btn_dark" : ""
-            }`}
-            onClick={handleLogout}
-          >
-            <p
-              className={`header__username ${
-                isSavedPage ? "header__username_dark" : ""
+      <nav className="header__nav" aria-label="Main navigation">
+        <ul className="header__nav-list">
+          <li>
+            <Link
+              to="/"
+              className={`header__home ${
+                isSavedPage ? "header__home_dark" : ""
               }`}
             >
-              {currentUser.name}
-            </p>
-            <img
-              src={Logout}
-              alt="logout"
-              className={`header__logout-img ${
-                isSavedPage ? "header__logout-img_dark" : ""
-              }`}
-            />
-          </button>
-        )}
-      </div>
+              Home
+            </Link>
+          </li>
+          {isLoggedIn && currentUser && (
+            <li>
+              <Link
+                to="/saved-news"
+                className={`header__home ${
+                  isSavedPage ? "header__home_dark" : ""
+                }`}
+              >
+                Saved news
+              </Link>
+            </li>
+          )}
+          {!isLoggedIn && (
+            <li>
+              <button
+                type="button"
+                className={`header__login ${
+                  isSavedPage ? "header__login_dark" : ""
+                }`}
+                onClick={handleLoginClick}
+              >
+                Sign in
+              </button>
+            </li>
+          )}
+          {isLoggedIn && currentUser && (
+            <li>
+              <button
+                type="button"
+                className={`header__logout-btn ${
+                  isSavedPage ? "header__logout-btn_dark" : ""
+                }`}
+                onClick={handleLogout}
+              >
+                <p
+                  className={`header__username ${
+                    isSavedPage ? "header__username_dark" : ""
+                  }`}
+                >
+                  {currentUser.name}
+                </p>
+                <img
+                  src={Logout}
+                  alt="logout"
+                  className={`header__logout-img ${
+                    isSavedPage ? "header__logout-img_dark" : ""
+                  }`}
+                />
+              </button>
+            </li>
+          )}
+        </ul>
+      </nav>
 
       {/* Hamburger Icon */}
-      <button className="hamburger" aria-label="Menu" onClick={toggleMenu}>
+      <button
+        className="header__hamburger"
+        aria-label="Menu"
+        onClick={toggleMenu}
+      >
         <span
-          className={`hamburger__line ${
-            isSavedPage ? "hamburger__line_dark" : ""
+          className={`header__hamburger-line ${
+            isSavedPage ? "header__hamburger-line_dark" : ""
           }`}
         ></span>
         <span
-          className={`hamburger__line ${
-            isSavedPage ? "hamburger__line_dark" : ""
+          className={`header__hamburger-line ${
+            isSavedPage ? "header__hamburger-line_dark" : ""
           }`}
         ></span>
       </button>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className={`mobile-menu ${isSavedPage ? "dark" : ""}`}>
+        <div
+          className={`header__mobile-menu ${
+            isSavedPage ? "header__mobile-menu_dark" : ""
+          }`}
+        >
           <Link to="/" className="header__home" onClick={closeMenu}>
             Home
           </Link>

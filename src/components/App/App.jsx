@@ -9,6 +9,7 @@ import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SavedNews from "../SavedNews/SavedNews";
+import SuccessPopup from "../SuccessPopup/SuccessPopup";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -18,6 +19,7 @@ function App() {
   const [token, setToken] = useState("");
   const [isLoading, setIsLoading] = useState("");
   const [savedArticles, setSavedArticles] = useState([]);
+  const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
@@ -50,6 +52,7 @@ function App() {
       .then((userData) => {
         setCurrentUser(userData.data);
         setIsLoggedIn(true);
+        setShowSuccess(true);
         closeActiveModal();
       })
       .catch((err) => {
@@ -177,6 +180,14 @@ function App() {
           handleLoginClick={handleLoginClick}
           handleRegistration={handleRegistration}
         />
+        {showSuccess && (
+          <SuccessPopup
+            onClose={() => {
+              setShowSuccess(false);
+              handleLoginClick();
+            }}
+          />
+        )}
         <Footer />
       </div>
     </div>

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: Roboto;
+  src: url("../../vendor/Fonts/roboto-slab-400-regular.woff");
+  src: url("../../vendor/Fonts/roboto-400-regular.woff2");
+}
+
 .about__author {
   background-color: white;
   z-index: 1;
@@ -16,7 +22,7 @@
 }
 
 .about__title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -24,11 +30,11 @@
 }
 
 .about__text {
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  margin-bottom: 16px; /* spacing between paragraphs */
+  margin-bottom: 16px;
   max-width: 600px;
 }
 
@@ -44,7 +50,7 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 550px) {
   .about__author {
     flex-direction: column;
     align-items: center;

@@ -13,9 +13,6 @@
 @media (max-width: 950px) {
   .page {
     padding: 0;
-  }
-
-  .page__content {
-    width: 100%;
+    margin: 0;
   }
 }

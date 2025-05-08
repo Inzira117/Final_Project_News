@@ -51,7 +51,7 @@ export default function SavedNews({
         )}
       </div>
 
-      <div className="saved-news__cards">
+      <ul className="saved-news__cards">
         {savedArticles.length > 0 ? (
           savedArticles.map((article) => (
             <NewsCard
@@ -65,7 +65,7 @@ export default function SavedNews({
         ) : (
           <p className="no__articles">No saved articles yet.</p>
         )}
-      </div>
+      </ul>
     </section>
   );
 }

@@ -6,7 +6,7 @@ function AboutAuthor() {
     <section className="about__author">
       <img src={Avatar} alt="avatar" className="about__avatar" />
       <div className="about__content">
-        <h1 className="about__title">About the author</h1>
+        <h2 className="about__title">About the author</h2>
         <p className="about__text">
           My name is Inzira A. I am the developer behind this news search
           project. This application was built using React.js for the frontend,

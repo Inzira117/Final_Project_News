@@ -18,25 +18,25 @@
   box-sizing: border-box;
 }
 
-.results__not-found {
+.main__not-found {
   background-color: #f5f6f7;
   position: relative;
   padding: 84px;
 }
 
-.results__container {
+.main__not-found-box {
   width: 356px;
   margin: 0 auto;
 }
 
-.results__img {
+.main__not-found-img {
   width: 82px;
   height: 82px;
   padding-left: 120px;
 }
 
-.results__title {
-  font-family: Roboto Slab;
+.main__not-found-title {
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 400;
   font-size: 26px;
   line-height: 30px;
@@ -45,8 +45,8 @@
   color: #1a1b22;
 }
 
-.results__description {
-  font-family: Roboto;
+.main__not-found-desc {
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -55,14 +55,14 @@
   color: #b6bcbf;
 }
 
-.error {
+.main__error {
   background-color: #f5f6f7;
   position: relative;
   padding: 84px;
 }
 
-.error__title {
-  font-family: Roboto Slab;
+.main__error-message {
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 400;
   font-size: 26px;
   line-height: 30px;

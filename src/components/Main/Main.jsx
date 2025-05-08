@@ -53,10 +53,10 @@ function Main({
         />
       </div>
 
-      {searchError && <p className="search__error">{searchError}</p>}
-      {newsError && <p className="search__error">{newsError}</p>}
+      {searchError && <p className="main__error">{searchError}</p>}
+      {newsError && <p className="main__error">{newsError}</p>}
       {loading && (
-        <p className="search__error">
+        <p className="main__error">
           <Preloader />
         </p>
       )}
@@ -90,11 +90,15 @@ function Main({
         articles.length === 0 &&
         !searchError &&
         !newsError && (
-          <div className="results__not-found">
-            <div className="results__container">
-              <img src={NotFound} alt="not found" className="results__img" />
-              <p className="results__title">Nothing found.</p>
-              <p className="results__description">
+          <div className="main__not-found">
+            <div className="main__not-found-box">
+              <img
+                src={NotFound}
+                alt="not found"
+                className="main__not-found-img"
+              />
+              <p className="main__not-found-title">Nothing found.</p>
+              <p className="main__not-found-desc">
                 Sorry, but nothing matched your search terms
               </p>
             </div>
@@ -102,8 +106,8 @@ function Main({
         )}
 
       {!loading && hasSearched && (searchError || newsError) && (
-        <div className="error">
-          <p className="error__title">
+        <div className="main__error">
+          <p className="main__error-message">
             Sorry, something went wrong during the request. Please try again
             later.
           </p>
