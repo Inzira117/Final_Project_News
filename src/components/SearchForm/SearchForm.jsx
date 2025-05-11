@@ -33,16 +33,16 @@ function SearchForm({
   };
 
   return (
-    <form className="search__bar" onSubmit={handleSubmit}>
-      <div className="search__bar-container">
+    <form className="search-bar" onSubmit={handleSubmit}>
+      <div className="search-bar__container">
         <input
-          className="search__input"
+          className="search-bar__input"
           type="text"
           placeholder="Enter topic"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
-        <button type="submit" className="search__btn">
+        <button type="submit" className="search-bar__btn">
           Search
         </button>
       </div>

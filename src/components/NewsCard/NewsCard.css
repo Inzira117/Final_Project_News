@@ -135,19 +135,20 @@
 @media (max-width: 950px) {
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
     gap: 8px;
+    margin: 0;
+    padding: 0;
   }
 }
 
 @media (max-width: 450px) {
   .cards {
     box-sizing: border-box;
-    margin: 0;
   }
 
   .card {
-    width: 288px;
-    margin: 0 auto;
+    width: 228px;
+    width: 100%;
   }
 }

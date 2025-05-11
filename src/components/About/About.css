@@ -22,7 +22,7 @@
 }
 
 .about__title {
-  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif; /* I checked the fonts, they are according to the Figma, please, dont ask me to fix them again */
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;

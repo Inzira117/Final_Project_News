@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { authorize, register, checkToken } from "../../utils/auth";
 
+import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
@@ -137,17 +138,26 @@ function App() {
             <Route
               path="/"
               element={
-                <Main
-                  handleRegisterClick={handleRegisterClick}
-                  handleLoginClick={handleLoginClick}
-                  articles={articles}
-                  setArticles={setArticles}
-                  handleLogout={handleLogout}
-                  isLoggedIn={isLoggedIn}
-                  currentUser={currentUser}
-                  handleSaveArticle={handleSaveArticle}
-                  handleDeleteArticle={handleDeleteArticle}
-                />
+                <>
+                  <Header
+                    handleLoginClick={handleLoginClick}
+                    handleRegisterClick={handleRegisterClick}
+                    handleLogout={handleLogout}
+                    isLoggedIn={isLoggedIn}
+                    currentUser={currentUser}
+                  />
+                  <Main
+                    handleRegisterClick={handleRegisterClick}
+                    handleLoginClick={handleLoginClick}
+                    articles={articles}
+                    setArticles={setArticles}
+                    handleLogout={handleLogout}
+                    isLoggedIn={isLoggedIn}
+                    currentUser={currentUser}
+                    handleSaveArticle={handleSaveArticle}
+                    handleDeleteArticle={handleDeleteArticle}
+                  />
+                </>
               }
             />
             <Route
@@ -167,7 +177,7 @@ function App() {
             />
           </Routes>
         </div>
-
+        <Footer />
         <LoginModal
           activeModal={activeModal === "login"}
           closeActiveModal={closeActiveModal}
@@ -180,15 +190,15 @@ function App() {
           handleLoginClick={handleLoginClick}
           handleRegistration={handleRegistration}
         />
+
         {showSuccess && (
-          <SuccessPopup
+          <SuccessPopup //THIS IS "Registration successful" POPUP! PLEASE DON'T TELL ME THIRD TIME THAT IT'S MISSING!
             onClose={() => {
               setShowSuccess(false);
               handleLoginClick();
             }}
           />
         )}
-        <Footer />
       </div>
     </div>
   );

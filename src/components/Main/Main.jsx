@@ -1,21 +1,16 @@
 import "./Main.css";
 
 import React, { useState } from "react";
-import NewsCard from "../NewsCard/NewsCard";
 import Navigation from "../Navigation/Navigation";
-import Header from "../Header/Header";
+import NewsCard from "../NewsCard/NewsCard";
 import AboutAuthor from "../About/About";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../../assets/Not-found.svg";
 
 function Main({
-  handleLoginClick,
-  handleRegisterClick,
   articles,
   setArticles,
-  handleLogout,
   isLoggedIn,
-  currentUser,
   handleSaveArticle,
   handleDeleteArticle,
 }) {
@@ -23,9 +18,9 @@ function Main({
   const [searchError, setSearchError] = useState("");
   const [newsError, setNewsError] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(3);
   const [searchText, setSearchText] = useState("");
 
+  const [visibleCount, setVisibleCount] = useState(3);
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + 3);
   };
@@ -34,14 +29,7 @@ function Main({
 
   return (
     <main className="main">
-      <div className="main__background">
-        <Header
-          handleLoginClick={handleLoginClick}
-          handleRegisterClick={handleRegisterClick}
-          handleLogout={handleLogout}
-          isLoggedIn={isLoggedIn}
-          currentUser={currentUser}
-        />
+      <section className="main__search-section">
         <Navigation
           setArticles={setArticles}
           articles={articles}
@@ -51,8 +39,7 @@ function Main({
           searchText={searchText}
           setSearchText={setSearchText}
         />
-      </div>
-
+      </section>
       {searchError && <p className="main__error">{searchError}</p>}
       {newsError && <p className="main__error">{newsError}</p>}
       {loading && (
@@ -77,7 +64,10 @@ function Main({
               ))}
             </ul>
             {visibleCount < articles.length && (
-              <button onClick={handleShowMore} className="button__show-more">
+              <button
+                onClick={handleShowMore}
+                className="main__button_show-more"
+              >
                 Show more
               </button>
             )}

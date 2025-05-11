@@ -59,7 +59,7 @@
 
 @media (max-width: 950px) {
   .news__content {
-    padding: 0 16px;
+    padding: 40px;
     margin-bottom: 30px;
   }
 
@@ -72,6 +72,11 @@
 }
 
 @media (max-width: 450px) {
+  .news__content {
+    padding: 0px 16px;
+    margin-bottom: 30px;
+  }
+
   .saved__articles {
     font-size: 12px;
   }

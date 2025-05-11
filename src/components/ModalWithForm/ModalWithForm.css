@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  z-index: 1000;
 }
 
 .modal_opened {
@@ -32,16 +33,18 @@
 
 .modal__close {
   position: absolute;
-  top: -40px;
-  left: 420px;
-  width: 20px;
-  height: 20px;
+  top: -80px;
+  left: 400px;
+  width: 40px;
+  height: 40px;
   border: none;
   color: white;
   padding: 0;
   cursor: pointer;
   background-color: transparent;
-  background-image: url(../../assets/CloseMod.svg);
+  background-image: url(../../assets/close.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .modal__content {
