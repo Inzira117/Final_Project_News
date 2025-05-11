@@ -4,18 +4,18 @@
   src: url("../../vendor/Fonts/roboto-slab-400-regular.woff");
 }
 
-.saved__news {
+.saved-news {
   background: white transparent;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.news__content {
+.saved-news__content {
   padding: 40px 104px 56px;
 }
 
-.saved__articles {
+.saved-news__articles {
   font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -24,7 +24,7 @@
   color: #1a1b2280;
 }
 
-.saved__title {
+.saved-news__title {
   font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 400;
   font-size: 40px;
@@ -33,7 +33,7 @@
   color: #1a1b22;
 }
 
-.news__keyword {
+.saved-news__keyword {
   font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -42,7 +42,7 @@
   color: #1a1b22;
 }
 
-.no__articles {
+.saved-news__no-articles {
   padding: 30px 104px;
 }
 
@@ -58,7 +58,7 @@
 }
 
 @media (max-width: 950px) {
-  .news__content {
+  .saved-news__content {
     padding: 40px;
     margin-bottom: 30px;
   }
@@ -72,16 +72,16 @@
 }
 
 @media (max-width: 450px) {
-  .news__content {
+  .saved-news__content {
     padding: 0px 16px;
     margin-bottom: 30px;
   }
 
-  .saved__articles {
+  .saved-news__articles {
     font-size: 12px;
   }
 
-  .saved__title {
+  .saved-news__title {
     font-size: 30px;
   }
 

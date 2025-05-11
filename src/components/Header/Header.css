@@ -237,6 +237,7 @@
 @media (max-width: 950px) {
   .header {
     padding: 16px;
+    overflow: hidden;
   }
 
   .header__content {
@@ -249,7 +250,7 @@
 
   .header__logo {
     font-size: 20px;
-    margin-top: 0;
+    margin: 0;
   }
 }
 

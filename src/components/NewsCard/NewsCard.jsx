@@ -87,7 +87,7 @@ function NewsCard({
         )}
       </div>
       <div className="card__content">
-        <p className="news__date">
+        <p className="card__news-date">
           {new Date(publishedAt).toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",

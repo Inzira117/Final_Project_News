@@ -29,7 +29,7 @@ export default function SavedNews({
 
   console.log(">> Saved Artticles:", savedArticles);
   return (
-    <section className="saved__news">
+    <section className="saved-news">
       <Header
         handleLoginClick={handleLoginClick}
         handleRegisterClick={handleRegisterClick}
@@ -37,9 +37,9 @@ export default function SavedNews({
         isLoggedIn={isLoggedIn}
         currentUser={currentUser}
       />
-      <div className="news__content">
-        <p className="saved__articles">Saved articles</p>
-        <h1 className="news__title">
+      <div className="saved-news__content">
+        <p className="saved-news__articles">Saved articles</p>
+        <h1 className="saved-news__title">
           {currentUser
             ? `${currentUser.name}, you have ${savedArticles.length} saved ${
                 savedArticles.length === 1 ? "article" : "articles"
@@ -47,7 +47,9 @@ export default function SavedNews({
             : "You have 0 saved articles"}
         </h1>
         {keywords.length > 0 && (
-          <p className="news__keyword">By keywords: {formattedKeywords()}</p>
+          <p className="saved-news__keyword">
+            By keywords: {formattedKeywords()}
+          </p>
         )}
       </div>
 
@@ -63,7 +65,7 @@ export default function SavedNews({
             />
           ))
         ) : (
-          <p className="no__articles">No saved articles yet.</p>
+          <p className="saved-news__no-articles">No saved articles yet.</p>
         )}
       </ul>
     </section>
