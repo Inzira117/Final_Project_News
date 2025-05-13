@@ -7,7 +7,7 @@ export default function SuccessPopup({ onClose, closeActiveModal }) {
     <div className="popup-overlay">
       <div className="popup">
         <button
-          className="modal__close"
+          className="popup__close"
           type="button"
           onClick={closeActiveModal}
         >

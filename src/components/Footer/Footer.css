@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Roboto;
-  src: url("../../vendor/Fonts/roboto-400-regular.woff");
-}
-
 .footer {
   display: flex;
   justify-content: space-between;
@@ -11,10 +6,6 @@
 
 .footer__content {
   color: #b6bcbf;
-  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
 }
 
 .footer__nav {
@@ -32,21 +23,16 @@
   gap: 20px;
 }
 
-.footer__home {
+.footer__link {
   border: none;
   background-color: transparent;
   color: black;
   cursor: pointer;
   text-decoration: none;
-  margin-right: 20px;
-}
-
-.footer__tt {
-  border: none;
-  background-color: transparent;
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .footer__social-list {
@@ -67,7 +53,7 @@
 
 @media (max-width: 725px) {
   .footer {
-    padding: 0 40px;
+    padding: 0 16px;
     flex-direction: column-reverse;
     width: 100%;
     width: 100vw;

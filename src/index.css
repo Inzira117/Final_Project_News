@@ -1,9 +1,2 @@
 @import url(./vendor/normalize.css);
-
-@font-face {
-  font-family: inter, Arial, Helvetica, sans-serif;
-  src: url("./vendor/Fonts/inter-400-regular.woff");
-  font-weight: 400;
-  font-family: roboto, Arial, Helvetica, sans-serif;
-  src: url("./vendor/Fonts/roboto-400-regular.woff");
-}
+@import url("./vendor/Fonts/fonts.css");

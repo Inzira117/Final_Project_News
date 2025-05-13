@@ -1,15 +1,8 @@
-@font-face {
-  font-family: Roboto;
-  src: url("../../vendor/Fonts/roboto-slab-400-regular.woff");
-  src: url("../../vendor/Fonts/roboto-400-regular.woff2");
-}
-
 .about__author {
   background-color: white;
   z-index: 1;
   margin-top: 0;
   display: flex;
-  justify-content: space-around;
   gap: 50px;
   padding: 80px 100px;
 }
@@ -19,10 +12,17 @@
   width: 464px;
   height: 464px;
   object-fit: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.about__image {
+  max-width: 464px;
+  min-width: 272px;
 }
 
 .about__title {
-  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif; /* I checked the fonts, they are according to the Figma, please, dont ask me to fix them again */
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -41,12 +41,21 @@
 @media (max-width: 950px) {
   .about__author {
     padding: 50px 16px;
+    gap: 30px;
   }
+
+  .about__content {
+    max-width: 424px;
+  }
+
   .about__avatar {
-    width: 232px;
-    height: 232px;
     padding-left: 40px;
     padding-top: 60px;
+  }
+
+  .about__image {
+    width: 232px;
+    height: 232px;
   }
 }
 
@@ -54,11 +63,16 @@
   .about__author {
     flex-direction: column;
     align-items: center;
+    gap: 0;
   }
 
   .about__avatar {
     margin: 0 auto;
     padding: 0;
+    height: 272px;
+  }
+
+  .about__image {
     height: 272px;
     width: 272px;
   }
@@ -67,5 +81,9 @@
     padding: 24px 16px 0;
     margin-bottom: 80px;
     width: 288px;
+  }
+
+  .about__title {
+    font-size: 30px;
   }
 }

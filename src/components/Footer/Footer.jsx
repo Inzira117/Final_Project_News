@@ -13,7 +13,7 @@ function Footer() {
             <NavLink
               to="/"
               onClick={() => window.scrollTo(0, 0)}
-              className="footer__home"
+              className="footer__link"
             >
               Home
             </NavLink>
@@ -21,7 +21,7 @@ function Footer() {
           <li>
             <Link
               to="https://tripleten.com/"
-              className="footer__tt"
+              className="footer__link"
               rel="noopener noreferrer"
               target="_blank"
             >
