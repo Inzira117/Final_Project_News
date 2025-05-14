@@ -49,7 +49,6 @@
   }
 
   .about__avatar {
-    padding-left: 40px;
     padding-top: 60px;
   }
 
@@ -64,23 +63,18 @@
     flex-direction: column;
     align-items: center;
     gap: 0;
+    padding: 0 16px;
   }
 
   .about__avatar {
     margin: 0 auto;
-    padding: 0;
-    height: 272px;
-  }
-
-  .about__image {
-    height: 272px;
-    width: 272px;
+    width: 100%;
+    max-width: 272px;
+    height: auto;
   }
 
   .about__content {
-    padding: 24px 16px 0;
     margin-bottom: 80px;
-    width: 288px;
   }
 
   .about__title {

@@ -21,10 +21,12 @@ function App() {
   const [isLoading, setIsLoading] = useState("");
   const [savedArticles, setSavedArticles] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setActiveModal("login");
+    setIsModalOpen(true);
   };
 
   const handleRegisterClick = () => {
@@ -33,6 +35,7 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+    setIsModalOpen(false);
   };
 
   // Registration
@@ -145,6 +148,7 @@ function App() {
                     handleLogout={handleLogout}
                     isLoggedIn={isLoggedIn}
                     currentUser={currentUser}
+                    isModalOpen={isModalOpen}
                   />
                   <Main
                     handleRegisterClick={handleRegisterClick}
@@ -192,11 +196,12 @@ function App() {
         />
 
         {showSuccess && (
-          <SuccessPopup //THIS IS "Registration successful" POPUP! PLEASE DON'T TELL ME THIRD TIME THAT IT'S MISSING!
+          <SuccessPopup
             onClose={() => {
               setShowSuccess(false);
-              handleLoginClick();
+              closeActiveModal();
             }}
+            handleLoginClick={handleLoginClick}
           />
         )}
       </div>

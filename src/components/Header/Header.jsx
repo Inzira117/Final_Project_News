@@ -3,21 +3,25 @@ import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Logout from "../../assets/logout.svg";
 
-function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
+function Header({
+  handleLoginClick,
+  handleLogout,
+  isLoggedIn,
+  currentUser,
+  isModalOpen,
+}) {
   const location = useLocation();
   const isSavedPage = location.pathname === "/saved-news";
+  const theme = isSavedPage ? "dark" : "light";
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className={`header ${isSavedPage ? "header_dark" : ""}`}>
+    <header className={`header header_theme_${theme}`}>
       <div className="header__content">
-        <Link
-          to="/"
-          className={`header__logo ${isSavedPage ? "header__logo_dark" : ""}`}
-        >
+        <Link to="/" className={`header__logo header__logo_theme_${theme}`}>
           NewsExplorer
         </Link>
 
@@ -27,9 +31,7 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
             <li>
               <Link
                 to="/"
-                className={`header__home ${
-                  isSavedPage ? "header__home_dark" : ""
-                }`}
+                className={`header__link header__link_theme_${theme}`}
               >
                 Home
               </Link>
@@ -38,9 +40,7 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
               <li>
                 <Link
                   to="/saved-news"
-                  className={`header__home ${
-                    isSavedPage ? "header__home_dark" : ""
-                  }`}
+                  className={`header__link header__link_theme_${theme}`}
                 >
                   Saved news
                 </Link>
@@ -50,9 +50,7 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
               <li>
                 <button
                   type="button"
-                  className={`header__login ${
-                    isSavedPage ? "header__login_dark" : ""
-                  }`}
+                  className={`header__auth header__auth_theme_${theme}`}
                   onClick={handleLoginClick}
                 >
                   Sign in
@@ -63,24 +61,18 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
               <li>
                 <button
                   type="button"
-                  className={`header__logout-btn ${
-                    isSavedPage ? "header__logout-btn_dark" : ""
-                  }`}
+                  className={`header__logout-btn header__logout-btn_theme_${theme}`}
                   onClick={handleLogout}
                 >
                   <p
-                    className={`header__username ${
-                      isSavedPage ? "header__username_dark" : ""
-                    }`}
+                    className={`header__username header__username_theme_${theme}`}
                   >
                     {currentUser.name}
                   </p>
                   <img
                     src={Logout}
                     alt="logout"
-                    className={`header__logout-img ${
-                      isSavedPage ? "header__logout-img_dark" : ""
-                    }`}
+                    className={`header__logout-img header__logout-img_theme_${theme}`}
                   />
                 </button>
               </li>
@@ -90,36 +82,30 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
 
         {/* Hamburger Icon */}
         <button
-          className="header__hamburger"
+          className={`header__hamburger ${
+            isModalOpen ? "header__hamburger_hidden" : ""
+          }`}
           aria-label="Menu"
           onClick={toggleMenu}
         >
           <span
-            className={`header__hamburger-line ${
-              isSavedPage ? "header__hamburger-line_dark" : ""
-            }`}
-          ></span>
+            className={`header__hamburger-line header__hamburger-line_theme_${theme}`}
+          />
           <span
-            className={`header__hamburger-line ${
-              isSavedPage ? "header__hamburger-line_dark" : ""
-            }`}
-          ></span>
+            className={`header__hamburger-line header__hamburger-line_theme_${theme}`}
+          />
         </button>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="header__overlay">
             <div
-              className={`header__mobile-menu ${
-                isSavedPage ? "header__mobile-menu_dark" : ""
-              }`}
+              className={`header__mobile-menu header__mobile-menu_theme_${theme}`}
             >
               <div className="header__mobile-top">
                 <Link
                   to="/"
-                  className={`header__logo ${
-                    isSavedPage ? "header__logo_dark" : ""
-                  }`}
+                  className={`header__logo header__logo_theme_${theme}`}
                   onClick={closeMenu}
                 >
                   NewsExplorer
@@ -132,13 +118,17 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
                   ✕
                 </button>
               </div>
-              <Link to="/" className="header__home" onClick={closeMenu}>
+              <Link
+                to="/"
+                className={`header__link header__link_theme_${theme}`}
+                onClick={closeMenu}
+              >
                 Home
               </Link>
               {isLoggedIn && currentUser && (
                 <Link
                   to="/saved-news"
-                  className="header__home"
+                  className={`header__link header__link_theme_${theme}`}
                   onClick={closeMenu}
                 >
                   Saved news
@@ -147,7 +137,7 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
               {!isLoggedIn && (
                 <button
                   type="button"
-                  className="header__login"
+                  className={`header__auth header__auth_theme_${theme}`}
                   onClick={() => {
                     handleLoginClick();
                     closeMenu();
@@ -159,7 +149,7 @@ function Header({ handleLoginClick, handleLogout, isLoggedIn, currentUser }) {
               {isLoggedIn && currentUser && (
                 <button
                   type="button"
-                  className="header__logout-btn"
+                  className={`header__logout-btn header__logout-btn_theme_${theme}`}
                   onClick={() => {
                     handleLogout();
                     closeMenu();

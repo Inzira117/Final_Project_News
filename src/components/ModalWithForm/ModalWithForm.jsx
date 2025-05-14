@@ -1,6 +1,5 @@
 import "./ModalWithForm.css";
 
-
 function ModalWithForm({
   children,
   name,
@@ -15,13 +14,12 @@ function ModalWithForm({
       onClick={closeActiveModal}
     >
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-        <h2 className="modal__title">{title}</h2>
         <button
           className="modal__close"
           type="button"
           onClick={closeActiveModal}
-        >
-        </button>
+        ></button>
+        <h2 className="modal__title">{title}</h2>
         <form className="modal__form" onSubmit={onSubmit} name={name}>
           {children}
         </form>

@@ -13,6 +13,12 @@
 }
 
 @font-face {
+  font-family: "Roboto";
+  src: url("roboto-900.woff2");
+  font-weight: 900;
+}
+
+@font-face {
   font-family: "Inter";
   src: url("inter-400regular.woff");
   font-style: normal;
@@ -24,4 +30,10 @@
   src: url("roboto-slab-400-regular.woff");
   font-style: normal;
   font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("roboto-slab-700.woff");
+  font-weight: 700;
 }

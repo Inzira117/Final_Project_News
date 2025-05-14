@@ -40,13 +40,7 @@ function Main({
           setSearchText={setSearchText}
         />
       </section>
-      {searchError && <p className="main__error">{searchError}</p>}
-      {newsError && <p className="main__error">{newsError}</p>}
-      {loading && (
-        <p className="main__error">
-          <Preloader />
-        </p>
-      )}
+      {loading && <Preloader />}
       {!loading && articles.length > 0 && (
         <section className="news">
           <div className="news__content">
@@ -66,7 +60,7 @@ function Main({
             {visibleCount < articles.length && (
               <button
                 onClick={handleShowMore}
-                className="main__button_show-more"
+                className="news__button_show-more"
               >
                 Show more
               </button>

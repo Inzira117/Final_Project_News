@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Roboto Slab;
-  src: url("../../vendor/Fonts/roboto-700.woff2");
-}
-
 .header {
   padding: 0;
   background-image: url(../../assets/Backgroundp.png);
@@ -14,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.header_dark {
+.header_theme_dark {
   background: none;
   height: 100px;
   min-height: 0;
@@ -34,10 +29,14 @@
   color: white;
   font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 24px;
   cursor: pointer;
   text-decoration: none;
+}
+
+.header__logo_theme_dark {
+  color: #1a1b22;
 }
 
 .header__nav-list {
@@ -47,14 +46,7 @@
   list-style: none;
 }
 
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 26px 0 0;
-}
-
-.header__home {
+.header__link {
   position: relative;
   background-color: transparent;
   border: none;
@@ -68,7 +60,7 @@
   text-decoration: none;
 }
 
-.header__home::after {
+.header__link::after {
   content: "";
   position: absolute;
   bottom: -25px;
@@ -81,11 +73,23 @@
   transform-origin: left;
 }
 
-.header__home:hover::after {
+.header__link:hover::after {
   transform: scaleX(1);
 }
 
-.header__login {
+.header__link_theme_dark {
+  color: #1a1b22;
+}
+
+.header__link_theme_dark::after {
+  background-color: #1a1b22;
+}
+
+.header__link_theme_dark:hover::after {
+  transform: scaleX(1);
+}
+
+.header__auth {
   background-color: transparent;
   border: 1px solid white;
   border-radius: 24px;
@@ -101,7 +105,16 @@
   cursor: pointer;
 }
 
-.header__login:hover {
+.header__auth:hover {
+  background-color: #e8e8e8;
+}
+
+.header__auth_theme_dark {
+  border: 1px solid #1a1b22;
+  color: #1a1b22;
+}
+
+.header__auth_theme_dark:hover {
   background-color: #e8e8e8;
 }
 
@@ -115,6 +128,11 @@
   gap: 12px;
 }
 
+.header__logout-btn_theme_dark {
+  border: 1px solid #1a1b22;
+  color: black;
+}
+
 .header__username {
   padding: 12px;
   font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -124,51 +142,16 @@
   margin: 0;
 }
 
+.header__username_theme_dark {
+  color: #1a1b22;
+}
+
 .header__logout-img {
   padding: 12px;
   cursor: pointer;
 }
 
-.header__logo_dark {
-  color: #1a1b22;
-}
-
-.header__home_dark,
-.header__login_dark {
-  color: #1a1b22;
-}
-
-.header__login_dark {
-  border: 1px solid #1a1b22;
-}
-
-.header__home_dark::after {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #1a1b22;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: left;
-}
-
-.header__home_dark:hover::after {
-  transform: scaleX(1);
-}
-
-.header__login_dark:hover {
-  background-color: #e8e8e8;
-}
-
-.header__logout-btn_dark {
-  border: 1px solid #1a1b22;
-  color: black;
-}
-
-.header__logout-img_dark {
+.header__logout-img_theme_dark {
   filter: invert(1);
 }
 
@@ -181,20 +164,24 @@
   cursor: pointer;
 }
 
+.header__hamburger_hidden {
+  visibility: hidden;
+}
+
 .header__hamburger-line {
   width: 24px;
   height: 2px;
   background-color: white;
 }
 
-.header__hamburger-line_dark {
+.header__hamburger-line_theme_dark {
   background-color: black;
 }
 
 .header__overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 50% black opacity */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   display: flex;
   justify-content: flex-end;
@@ -212,6 +199,10 @@
   height: 230px;
   overflow-y: auto;
   border-radius: 0;
+}
+
+.header__mobile-menu_theme_dark {
+  background-color: white;
 }
 
 .header__mobile-top {
@@ -259,6 +250,10 @@
     padding: 20px;
   }
 
+  .header__logo {
+    font-size: 16px;
+  }
+
   .header__nav-list {
     display: none;
   }
@@ -272,7 +267,7 @@
     visibility: visible;
   }
 
-  .header__login {
+  .header__auth {
     width: 288px;
     height: 56px;
     width: 100%;

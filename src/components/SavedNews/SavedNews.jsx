@@ -53,21 +53,21 @@ export default function SavedNews({
         )}
       </div>
 
-      <ul className="saved-news__cards">
-        {savedArticles.length > 0 ? (
-          savedArticles.map((article) => (
+      {savedArticles.length > 0 ? (
+        <ul className="saved-news__cards">
+          {savedArticles.map((article) => (
             <NewsCard
-              key={article.url || index}
+              key={article.url}
               article={article}
               keyword={article.keyword || ""}
               isSavedNewsPage={true}
               handleDeleteArticle={handleDeleteArticle}
             />
-          ))
-        ) : (
-          <p className="saved-news__no-articles">No saved articles yet.</p>
-        )}
-      </ul>
+          ))}
+        </ul>
+      ) : (
+        <p className="saved-news__no-articles">No saved articles yet.</p>
+      )}
     </section>
   );
 }

@@ -62,7 +62,7 @@
   color: #1a1b22;
 }
 
-.main__button_show-more {
+.news__button_show-more {
   width: 288px;
   height: 64px;
   display: block;
@@ -78,7 +78,7 @@
   line-height: 24px;
 }
 
-.button__show-more:hover {
+.news__button_show-more:hover {
   background-color: #e8e8e8;
 }
 
@@ -120,7 +120,7 @@
     font-size: 30px;
   }
 
-  .button__show-more {
+  .news__button_show-more {
     width: 288px;
     margin-bottom: 30px;
   }
@@ -131,5 +131,6 @@
 
   .main__not-found-box {
     margin: 0 auto;
+    width: 100;
   }
 }

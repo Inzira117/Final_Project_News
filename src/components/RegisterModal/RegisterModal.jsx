@@ -45,6 +45,7 @@ export default function RegisterModal({
           placeholder="Enter email"
           value={formValues.email}
           onChange={handleChange}
+          required
         />
       </label>
       <label className="modal__label">
@@ -57,6 +58,7 @@ export default function RegisterModal({
           minLength="8"
           value={formValues.password}
           onChange={handleChange}
+          required
         />
       </label>
       <label className="modal__label">
@@ -68,6 +70,7 @@ export default function RegisterModal({
           placeholder="Enter your username"
           value={formValues.username}
           onChange={handleChange}
+          required
         />
       </label>
       <div className="modal__buttons">

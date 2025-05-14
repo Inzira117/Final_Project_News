@@ -43,6 +43,7 @@ export default function LoginModal({
           placeholder="Enter email"
           value={formValues.email}
           onChange={handleChange}
+          required
         />
       </label>
       <label className="modal__label">
@@ -55,6 +56,7 @@ export default function LoginModal({
           minLength="8"
           value={formValues.password}
           onChange={handleChange}
+          required
         />
       </label>
       <div className="modal__buttons">
