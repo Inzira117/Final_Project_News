@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url("roboto-500-regular.woff2");
+  src: url("roboto-500.woff");
   font-style: normal;
   font-weight: 500;
 }
@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("inter-400regular.woff");
+  src: url("inter-400-regular.woff");
   font-style: normal;
   font-weight: 400;
 }

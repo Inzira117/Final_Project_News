@@ -1,6 +1,6 @@
 import "./Header.css";
 import React, { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import Logout from "../../assets/logout.svg";
 
 function Header({
@@ -21,31 +21,41 @@ function Header({
   return (
     <header className={`header header_theme_${theme}`}>
       <div className="header__content">
-        <Link to="/" className={`header__logo header__logo_theme_${theme}`}>
+        <NavLink to="/" className={`header__logo header__logo_theme_${theme}`}>
           NewsExplorer
-        </Link>
+        </NavLink>
 
         {/* Desktop Nav */}
         <nav className="header__nav" aria-label="Main navigation">
           <ul className="header__nav-list">
             <li>
-              <Link
+              <NavLink
                 to="/"
-                className={`header__link header__link_theme_${theme}`}
+                className={({ isActive }) =>
+                  `header__link header__link_theme_${theme} ${
+                    isActive ? "header__link_active" : ""
+                  }`
+                }
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
+
             {isLoggedIn && currentUser && (
               <li>
-                <Link
+                <NavLink
                   to="/saved-news"
-                  className={`header__link header__link_theme_${theme}`}
+                  className={({ isActive }) =>
+                    `header__link header__link_theme_${theme} ${
+                      isActive ? "header__link_active" : ""
+                    }`
+                  }
                 >
                   Saved news
-                </Link>
+                </NavLink>
               </li>
             )}
+
             {!isLoggedIn && (
               <li>
                 <button
@@ -103,13 +113,13 @@ function Header({
               className={`header__mobile-menu header__mobile-menu_theme_${theme}`}
             >
               <div className="header__mobile-top">
-                <Link
+                <NavLink
                   to="/"
                   className={`header__logo header__logo_theme_${theme}`}
                   onClick={closeMenu}
                 >
                   NewsExplorer
-                </Link>
+                </NavLink>
                 <button
                   className="header__close-button"
                   aria-label="Close menu"
@@ -118,21 +128,21 @@ function Header({
                   ✕
                 </button>
               </div>
-              <Link
+              <NavLink
                 to="/"
                 className={`header__link header__link_theme_${theme}`}
                 onClick={closeMenu}
               >
                 Home
-              </Link>
+              </NavLink>
               {isLoggedIn && currentUser && (
-                <Link
+                <NavLink
                   to="/saved-news"
                   className={`header__link header__link_theme_${theme}`}
                   onClick={closeMenu}
                 >
                   Saved news
-                </Link>
+                </NavLink>
               )}
               {!isLoggedIn && (
                 <button

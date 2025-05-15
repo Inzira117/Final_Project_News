@@ -70,6 +70,8 @@ function NewsCard({
             className={`news__card-save-btn ${
               isLoggedIn ? "" : "news-card__save-btn_disabled"
             }`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             onClick={handleSaveClick}
           >
             <img

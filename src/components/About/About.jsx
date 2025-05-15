@@ -1,9 +1,9 @@
 import "./About.css";
-import Avatar from "../../assets/AuthorAvatar.svg";
+import Avatar from "../../assets/AboutAuthor.png";
 
 function AboutAuthor() {
   return (
-    <section className="about__author">
+    <section className="about">
       <div className="about__avatar">
         <img src={Avatar} alt="avatar" className="about__image" />
       </div>

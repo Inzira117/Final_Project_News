@@ -58,10 +58,7 @@ function Main({
               ))}
             </ul>
             {visibleCount < articles.length && (
-              <button
-                onClick={handleShowMore}
-                className="news__button_show-more"
-              >
+              <button onClick={handleShowMore} className="news__button">
                 Show more
               </button>
             )}
